@@ -6,6 +6,7 @@ export interface IUser extends Document{
     organization: 'IDF' | 'Hezbollah' | 'Hamas' | 'Iran';
     role:'defender' | 'attack' ;
     region?: 'North' | 'South' | 'Center' | 'YehudaAndShomron';
+    allowRegion?: 'North' | 'South' | 'Center' | 'East' | 'West';
 }
 
 const UserSchema: Schema = new Schema({
@@ -30,7 +31,11 @@ const UserSchema: Schema = new Schema({
     },
     region: {
         type: String,
-        enum: ['North', 'South', 'Center', 'YehudaAndShomron']
+        enum: ['North', 'South', 'Center', 'East', 'West']
+    },
+    allowRegion: {
+        type: [String],
+        enum: ['North', 'South', 'Center', 'East', 'West']
     }
 });
 
