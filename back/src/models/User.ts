@@ -3,9 +3,9 @@ import mongoose , {Document , Schema} from "mongoose";
 export interface IUser extends Document{
     username: string;
     password: string;
-    organization: string;
-    role: string;
-    region?: string;
+    organization: 'IDF' | 'Hezbollah' | 'Hamas' | 'Iran';
+    role:'defender' | 'attack' ;
+    region?: 'North' | 'South' | 'Center' | 'YehudaAndShomron';
 }
 
 const UserSchema: Schema = new Schema({
@@ -20,16 +20,18 @@ const UserSchema: Schema = new Schema({
     },
     organization: {
         type: String,
-        required: true
+        required: true,
+        enum: ['IDF', 'Hezbollah', 'Hamas', 'Iran']
     },
     role: {
         type: String,
-        enum: ['defender' , 'attacker'],
-        required: true
+        required: true,
+        enum: ['defender', 'attack']
     },
     region: {
         type: String,
+        enum: ['North', 'South', 'Center', 'YehudaAndShomron']
     }
 });
 
-export default mongoose.model<IUser>("User", UserSchema);
+export default mongoose.model<IUser>('User', UserSchema);
