@@ -1,0 +1,50 @@
+.register-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .register-title {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .register-input, .register-select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .register-button:focus, 
+  .register-input:focus, 
+  .register-select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .register-button:active {
+    background-color: #004085;
+  }
+  
