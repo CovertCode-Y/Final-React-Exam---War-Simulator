@@ -1,3 +1,4 @@
+// src / modules / User
 import mongoose , {Document , Schema} from "mongoose";
 
 export interface IUser extends Document{
@@ -6,7 +7,7 @@ export interface IUser extends Document{
     organization: 'IDF' | 'Hezbollah' | 'Hamas' | 'Iran';
     role:'defender' | 'attack' ;
     region?: 'North' | 'South' | 'Center' | 'YehudaAndShomron';
-    allowRegion?: 'North' | 'South' | 'Center' | 'East' | 'West';
+    allowRegion?: 'North' | 'South' | 'Center' | 'YehudaAndShomron';
 }
 
 const UserSchema: Schema = new Schema({
@@ -31,11 +32,11 @@ const UserSchema: Schema = new Schema({
     },
     region: {
         type: String,
-        enum: ['North', 'South', 'Center', 'East', 'West']
+        enum: ['North', 'South', 'Center', 'YehudaAndShomron']
     },
     allowRegion: {
         type: [String],
-        enum: ['North', 'South', 'Center', 'East', 'West']
+        enum: ['North', 'South', 'Center', 'YehudaAndShomron']
     }
 });
 

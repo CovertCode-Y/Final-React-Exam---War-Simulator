@@ -1,10 +1,11 @@
+// src/models/Missile.ts
 import mongoose, {Document, Schema} from "mongoose";
 
 interface IMissile extends Document {
     type: string;
-    region: 'North' | 'South' | 'Center' | 'East' | 'West';
+    region: 'North' | 'South' | 'Center' | 'YehudaAndShomron';
     interceptionSpeed: number;
-    status: 'peding' | 'hit' | 'miss';
+    status: 'pending' | 'hit' | 'miss';
     usedBy: mongoose.Types.ObjectId;
     timeout: Date;
 }
@@ -16,7 +17,7 @@ const missileSchema = new Schema<IMissile>({
     },
     region: {
         type: String,        
-        enum: ['North', 'South', 'Center', 'East', 'West']
+        enum: ['North', 'South', 'Center', 'YehudaAndShomron']
     },
     interceptionSpeed: {
         type: Number,
@@ -24,8 +25,8 @@ const missileSchema = new Schema<IMissile>({
     },    
     status: {
         type: String,
-        enum: ['peding', 'hit', 'miss'],
-        default: 'peding'
+        enum: ['pending', 'hit', 'miss'],
+        default: 'pending'
     },
     usedBy: {
         type: Schema.Types.ObjectId,
